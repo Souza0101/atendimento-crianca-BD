@@ -1,0 +1,43 @@
+CREATE table crianca( 
+  cod_crianca integer,
+  nome varchar(20),
+  sexo varchar(15),
+  data_nascimento date,
+  endereco varchar(40),
+  bairro varchar(30),
+  cidade varchar(20),
+  UF varchar(2),
+  responsavel varchar(20),
+  telefone varchar(20))
+  create table atendimento(
+    cod_atendimento integer,
+    crianca integer,
+    data_atendimento date,
+    mes_de_vida integer,
+    peso integer)
+INSERT into crianca(cod_crianca, nome, sexo, data_nascimento, endereco, bairro, cidade, uf, responsavel, telefone)
+             values(1, 'Maria das gracas', 'feminino', '2020-11-01', 'quadra 3 rua b', 'cpa', 'cuiaba', 'mt', 'cleiton', '5999876543'),
+                    (2, 'Julia Santos', 'feminino', '2021-10-01', 'quadra 7 casa 7', 'pedra90', 'cuiaba', 'mt', 'cleber', '6599765-4321'),
+                    (3, 'Amelia da Silva', 'feminino', '2022-01-4', 'quadra 3 rua c', 'cpa', 'cuiaba', 'mt', 'jorge', '6593765-0098'),
+                    (4, 'Enzo Souza', 'masculino', '2023-02-11', 'quadra 1 rua 7', 'tiucal', 'cuiaba', 'mt', 'kelvin', '6599675-4543'),
+                    (5, 'Pedro Filho', 'masculino', '2021-09-03', 'quadra 3 casa 35', 'despraiado', 'cuiaba', 'mt', 'Pedro Pai', '6599924-7593');
+alter table atendimento
+  rename crianca to cod_crianca
+INSERT into atendimento(cod_atendimento, cod_crianca, data_atendimento, mes_de_vida, peso)
+			VALUES(1, 1, '2023-02-03', 13, 29),
+            (2, 2, '2022-11-05', 10, 30),
+            (3, 3, '2023-05-11', 5, 20),
+            (4, 4, '2023-03-07', 13, 25),
+            (5, 5, '2023-04-08', 13, 10);
+SELECT * from crianca WHERE sexo = 'feminino';
+select * from crianca where data_nascimento BETWEEN '2020-01-01' and '2020-12-31' ;
+select * from crianca where bairro = 'cpa' and sexo = 'masculino';
+SELECT cod_crianca, mes_de_vida, peso from atendimento where data_atendimento BETWEEN '2020-01-01' and '2023-12-31';
+select * from crianca where cidade = 'cuiaba' and uf = 'mt';
+create table teste(
+  teste1 varchar(5),
+  teste2 integer,
+  teste3 varchar(5))
+INSERT into teste(teste1, teste2, teste3)
+    values(sim, 54, nao);
+    select * from teste;
